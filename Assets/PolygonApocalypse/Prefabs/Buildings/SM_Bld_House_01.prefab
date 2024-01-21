@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4309182577281348
 Transform:
@@ -142,7 +142,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4998679552763500
 Transform:
@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Oven_Broken_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1581918567953440, guid: 7e9f1dbcc606c1045aab1cbdc4b65a29, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4705333429454626, guid: 7e9f1dbcc606c1045aab1cbdc4b65a29, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.6819153
@@ -283,6 +287,10 @@ PrefabInstance:
     - target: {fileID: 1762450614453468, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bedframe_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762450614453468, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4443806456524942, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -347,6 +355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_BedMatress_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1305933842384340, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4214353630943454, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8230896
@@ -409,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Door_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4181954789635466, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_BedMatress_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1305933842384340, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4214353630943454, guid: ccb79d2f691e98548a17e09e7c6f22c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8230896
@@ -535,6 +555,10 @@ PrefabInstance:
     - target: {fileID: 1778056189493944, guid: 35df7bdec7b38e64c8533780e80dc1ac, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Desk_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778056189493944, guid: 35df7bdec7b38e64c8533780e80dc1ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4140889299396640, guid: 35df7bdec7b38e64c8533780e80dc1ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -599,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Zombie Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5262609191952260997, guid: 5e391f15beaa56f46a9b25b91529ac7c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5973895906569768515, guid: 5e391f15beaa56f46a9b25b91529ac7c,
         type: 3}
@@ -683,6 +712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_DiningChair_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1345656058296872, guid: a032d1889503d2246a80dfefa3b46f30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4385925334711722, guid: a032d1889503d2246a80dfefa3b46f30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.35277557
@@ -742,9 +775,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4309182577281348}
     m_Modifications:
+    - target: {fileID: 1043407685667792, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311384660198788, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695682486623552, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1974496140602406, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Kitchen_Fridge_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1974496140602406, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4229010823355450, guid: c87bc12aeb2e34943bb666836db3eec9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -808,6 +857,10 @@ PrefabInstance:
     - target: {fileID: 1762450614453468, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Bedframe_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762450614453468, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4443806456524942, guid: 016ad3349798a984b85484ddf70a27dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -928,6 +981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 7567704821741833342, guid: f6ffd520e15b577448d6bf908f3a1afd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -950,6 +1008,10 @@ PrefabInstance:
     - target: {fileID: 1277101185321378, guid: 8017106126ba9504ebd5fb3e2ca01c09, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Flag_Wall_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277101185321378, guid: 8017106126ba9504ebd5fb3e2ca01c09, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4003026355786314, guid: 8017106126ba9504ebd5fb3e2ca01c09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1075,6 +1137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Loot Spawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7567704821741833342, guid: f6ffd520e15b577448d6bf908f3a1afd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1097,6 +1164,10 @@ PrefabInstance:
     - target: {fileID: 1574373323952738, guid: b7e6e1778e30b654cb4a682eea372a86, type: 3}
       propertyPath: m_Name
       value: SM_Prop_DiningTable_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574373323952738, guid: b7e6e1778e30b654cb4a682eea372a86, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4089558235802470, guid: b7e6e1778e30b654cb4a682eea372a86, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1157,9 +1228,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4309182577281348}
     m_Modifications:
+    - target: {fileID: 1019643528577410, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074885207043616, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114802900433208, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375861777681022, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1511794136444630, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
       propertyPath: m_Name
       value: SM_Prop_Dresser_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511794136444630, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677776506833602, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678958177304052, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4769652186717400, guid: d6112e16f7e54344099937776b3d7f38, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1224,6 +1323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_Toaster_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1426916288059098, guid: 6bddeff5a07a50047b2dae0ae592f5dc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4188480027199564, guid: 6bddeff5a07a50047b2dae0ae592f5dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.519226
@@ -1286,6 +1389,10 @@ PrefabInstance:
     - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Door_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4181954789635466, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1350,6 +1457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Prop_DiningChair_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1345656058296872, guid: a032d1889503d2246a80dfefa3b46f30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4385925334711722, guid: a032d1889503d2246a80dfefa3b46f30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.46191406
@@ -1412,6 +1523,10 @@ PrefabInstance:
     - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_Name
       value: SM_Bld_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436619296891122, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4181954789635466, guid: b748999e7fef70f4fb5ad92a4cf64237, type: 3}
       propertyPath: m_LocalPosition.x

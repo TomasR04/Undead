@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PlayersInteractionsWithObjects : MonoBehaviour
 {
     public TMP_Text text;
     public LayerMask layerMask;
-    public Camera camera;
+    public CinemachineVirtualCamera camera;
     public GameObject inventoryItems;
 
     // Start is called before the first frame update

@@ -123,6 +123,8 @@ MonoBehaviour:
   hp: 1
   weight: 0.5
   size: 1
+  food: 30
+  drink: 0
 --- !u!54 &1823939299210984618
 Rigidbody:
   m_ObjectHideFlags: 0

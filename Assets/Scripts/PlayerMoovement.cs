@@ -15,6 +15,7 @@ public class PlayerMoovement : MonoBehaviour
     bool isGrounded;
     public float jumpHeight = 3f;
     public Camera camera;
+    public Transform firstPersonCam;
     public GameObject head;
     public LayerMask layer;
     public bool canWalk;
@@ -27,17 +28,22 @@ public class PlayerMoovement : MonoBehaviour
     }
     void Update()
     {
-        if (animator.GetBool("IsRunningUnarmed"))
+        if (animator.GetBool("IsRunning") && animator.GetBool("HasRifle"))
         {
-            camera.transform.parent = head.transform;
-            camera.transform.localPosition = new Vector3(-3.778934e-05f, 0, 0.158994f);
+            firstPersonCam.localPosition = new Vector3(0f, 1.542f, 0.42f);
         }
-        else if (animator.GetBool("IsWalkingUnarmed"))
+        else
         {
-            camera.transform.parent = gameObject.transform;
-            camera.transform.localPosition = new Vector3(-3.780331e-05f, 1.663589f, 0.2768766f);
+            if (!animator.GetBool("IsAiming"))
+            {
+                firstPersonCam.localPosition = new Vector3(0f, 1.658f, 0.255f);
+            }
+            
         }
-
+        if (Input.GetKeyUp(KeyCode.W)&&animator.GetBool("IsWalking"))
+        {
+            animator.Play("Unarmed Idle");
+        }
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
@@ -59,34 +65,34 @@ public class PlayerMoovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
 
-                animator.SetBool("IsRunningUnarmed", true);
-                animator.SetBool("IsWalkingUnarmed", false);
+                animator.SetBool("IsRunning", true);
+                animator.SetBool("IsWalking", false);
             }
             else
             {
-                if (!(animator.GetBool("IsRunningUnarmed")))
+                if (!(animator.GetBool("IsRunning")))
                 {
-                    animator.SetBool("IsWalkingUnarmed", true);
+                    animator.SetBool("IsWalking", true);
                 }
 
                 //animator.SetBool("IsRunningUnarmed", false);
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                animator.SetBool("IsRunningUnarmed", false);
+                animator.SetBool("IsRunning", false);
             }
         }
         else
         {
-            animator.SetBool("IsRunningUnarmed", false);
-            animator.SetBool("IsWalkingUnarmed", false);
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("IsWalking", false);
 
         }
         RaycastHit hit;
-        if (!Physics.Raycast(head.transform.position, head.transform.forward, 0.5f, layer) && canWalk)
+        if (!Physics.Raycast(firstPersonCam.position, firstPersonCam.forward, 0.5f, layer) && canWalk)
         {
 
-            if (animator.GetBool("IsRunningUnarmed"))
+            if (animator.GetBool("IsRunning"))
             {
                 controller.Move(move * (speed * 2) * Time.deltaTime);
             }
@@ -94,6 +100,10 @@ public class PlayerMoovement : MonoBehaviour
             {
                 controller.Move(move * speed * Time.deltaTime);
             }
+        }
+        else
+        {
+           transform.position = Vector3.zero;
         }
 
 

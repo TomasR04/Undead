@@ -30,9 +30,19 @@ public class PlayersInventory : MonoBehaviour
     public GameObject Options;
     private GameObject selected;
     private Button drop;
+    private Button consume;
 
     private int x = 0;
     private int y = 0;
+
+    public Transform RHand;
+    public Transform PlayersBack;
+
+    public Animator animator;
+
+    public bool isOpen = false;
+
+    public TMP_Text info;
     void Start()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
@@ -41,6 +51,8 @@ public class PlayersInventory : MonoBehaviour
         Options = UI.transform.Find("Options").gameObject;
         drop = Options.transform.Find("DropBTN").GetComponent<Button>();
         drop.onClick.AddListener(OnDrop);
+        consume = Options.transform.Find("ConsumeBTN").GetComponent<Button>();
+        consume.onClick.AddListener(OnConsume);
         SetInventoryUI();
     }
 
@@ -54,12 +66,14 @@ public class PlayersInventory : MonoBehaviour
                 UI.SetActive(false);
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
+                isOpen = false;
             }
             else
             {
                 UI.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
+                isOpen = true;
             }
         }
 
@@ -77,7 +91,7 @@ public class PlayersInventory : MonoBehaviour
                     }
                     
                 }
-                else if (hit.collider.gameObject.GetComponent<Item>().weight + usedWeight <= playerStats.strenght)
+                else if (hit.collider.gameObject.GetComponent<Item>().weight + usedWeight <= playerStats.strenght && (right.GetComponent<Image>().sprite == null|| back.GetComponent<Image>().sprite == null))
                 {
                     if (right.GetComponent<UIInventorySlot>().objekt == null)
                     {
@@ -113,12 +127,17 @@ public class PlayersInventory : MonoBehaviour
         SetCapacityUI();
         SetWeightUI();
     }
-    private void PickSmall(GameObject a)
+    public void PickSmall(GameObject a)
     {
         a.transform.parent = inventory.transform;
         a.GetComponent<Rigidbody>().useGravity = false;
-        a.GetComponent<MeshRenderer>().enabled = false;
-        a.GetComponent<MeshCollider>().enabled = false;
+        MeshRenderer[] meshRenderers = a.GetComponentsInChildren<MeshRenderer>();
+        foreach (var item in meshRenderers)
+        {
+            item.GetComponent<MeshRenderer>().enabled = false;
+        }
+        a.GetComponent<Collider>().enabled = false;
+        
         usedCapacity += a.GetComponent<Item>().size;
         usedWeight += a.GetComponent<Item>().weight;
         Sprite sprite = itemsList.items[0].sprite;
@@ -149,10 +168,91 @@ public class PlayersInventory : MonoBehaviour
     private void PickLarge(GameObject a)
     {
         usedWeight += a.GetComponent<Item>().weight;
+        Collider[] colliders = a.GetComponentsInChildren<Collider>();
+        foreach (var item in colliders)
+        {
+            item.enabled = false;
+        }
+        a.GetComponent<Rigidbody>().useGravity = false;
+        
+        Sprite sprite = itemsList.items[0].sprite;
+        Vector3 rpos = Vector3.zero;
+        Vector3 rrot = Vector3.zero;
+        Vector3 bpos = Vector3.zero;
+        Vector3 brot = Vector3.zero;
+        foreach (var item in itemsList.items)
+        {
+            if (item.item.name == PublicFunctions.GetOriginalName(a.name))
+            {
+                sprite = item.sprite;
+                rpos = item.rpos;
+                rrot = item.rrot;
+                bpos = item.bpos;
+                brot = item.brot;
+                if (a.tag == "Rifle")
+                {
+                    animator.SetBool("HasRifle", true);
+                }
+                break;
+            }
+        }
+        if (right.GetComponent<Image>().sprite==null)
+        {
+            a.transform.parent = RHand.transform;
+            right.GetComponent<Image>().sprite = sprite;
+            a.transform.localPosition = rpos;
+            a.transform.localEulerAngles = rrot;
+            right.GetComponent<UIInventorySlot>().clicked += OnClicked;
+            right.GetComponent<UIInventorySlot>().objekt = a;
+
+        }
+        else if (back.GetComponent<Image>().sprite == null)
+        {
+            a.transform.parent = PlayersBack.transform;
+            back.GetComponent<Image>().sprite = sprite;
+            a.transform.localPosition = bpos;
+            a.transform.localEulerAngles = brot;
+            back.GetComponent<UIInventorySlot>().clicked += OnClicked;
+            back.GetComponent<UIInventorySlot>().objekt = a;
+        }
     }
     private void OnClicked(GameObject a)
     {
         Options.SetActive(true);
+        //TMP_Text info = Options.GetComponentInChildren<TMP_Text>();
+        foreach (var item in itemsList.items)
+        {
+            if (item.item.name == PublicFunctions.GetOriginalName(a.GetComponent<UIInventorySlot>().objekt.name))
+            {
+                if (a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().food<1 && a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().drink <1)
+                {
+                    consume.gameObject.SetActive(false);
+                    Debug.Log("nešlo nic");
+                    info.text = a.GetComponent<UIInventorySlot>().objekt.GetComponent<Magazine>().ammo + "/30";
+                    consume.gameObject.SetActive(false);
+                }
+                else
+                {
+
+                    if (a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().food > 0)
+                    {
+                        Debug.Log(a.GetComponent<UIInventorySlot>().objekt + " má jídlo tpè");
+                        info.text = "Jídlo + " + a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().food;
+                        consume.gameObject.SetActive(true);
+                    }
+                    else if (a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().drink > 0)
+                    {
+                        info.text = "Pití + " + a.GetComponent<UIInventorySlot>().objekt.GetComponent<Item>().drink;
+                        consume.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+                break;
+            }
+        }
         selected = a;
     }
     private void OnDrop()
@@ -173,10 +273,33 @@ public class PlayersInventory : MonoBehaviour
             x = 10;
             y--;
         }else { x--; }
-        PreskladejUI();
-        SetInventoryUI();
+        /*PreskladejUI();
+        SetInventoryUI();*/
     }
-    private void PreskladejUI()
+    private void OnConsume()
+    {
+        GameObject objekt = selected.GetComponent<UIInventorySlot>().objekt;
+        if (playerStats.hunger+objekt.GetComponent<Item>().food>100)
+        {
+            playerStats.hunger = 100;
+        }
+        else
+        {
+            playerStats.hunger += objekt.GetComponent<Item>().food;
+        }
+        if (playerStats.thirst + objekt.GetComponent<Item>().drink > 100)
+        {
+            playerStats.thirst = 100;
+        }
+        else
+        {
+            playerStats.thirst += objekt.GetComponent<Item>().drink;
+        }
+        
+        Destroy(objekt);
+        Destroy(selected);
+    }
+    /*private void PreskladejUI()
     {
         UIInventorySlot[] sloty = smallSLots.GetComponentsInChildren<UIInventorySlot>();
         Debug.Log(sloty.Length);
@@ -196,5 +319,5 @@ public class PlayersInventory : MonoBehaviour
                 a++;
             }
         }
-    }
+    }*/
 }

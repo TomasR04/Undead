@@ -11,5 +11,9 @@ public class ItemsList : MonoBehaviour
     {
         public GameObject item;
         public Sprite sprite;
+        public Vector3 rpos;
+        public Vector3 rrot;
+        public Vector3 bpos;
+        public Vector3 brot;
     }
 }

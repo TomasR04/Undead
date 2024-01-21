@@ -27,7 +27,7 @@ public class UIInventorySlot : MonoBehaviour
     {
  
             clicked.Invoke(gameObject);
-            Debug.Log("Kliknuto");
+            //Debug.Log("Kliknuto");
 
         
     }

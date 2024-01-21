@@ -72,4 +72,8 @@ public class PublicFunctions : MonoBehaviour
 
         return finalName;
     }
+    /*public static string GetNameFromTheList(string inputName)
+    {
+
+    }*/
 }

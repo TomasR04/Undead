@@ -7,6 +7,8 @@ public class Item : MonoBehaviour
     public double hp = 1;
     public double weight = 1;
     public double size = 1;
+    public double food = 0;
+    public double drink = 0;
 
 
     void Update()
